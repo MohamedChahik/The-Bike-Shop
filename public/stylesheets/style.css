@@ -7,6 +7,9 @@ h1 {
   font-size: 28px;
 }
 
+head{
+  image: url('/images/bike-background.jpg');
+}
 #card-header {
   background-color: #343A40;
   padding: 10px;
@@ -43,6 +46,10 @@ h1 {
   font-weight: 700;
 }
 
+.mybike{
+  text-decoration: none!important;
+  color: white;
+}
 .card-product {
   padding-top: 15px;
   padding-bottom: 15px;
@@ -76,4 +83,153 @@ h1 {
 
 .checkoutbutton {
   margin-bottom: 30px;
+}
+
+.title{
+   text-align: center;
+   margin-bottom: 3%;
+}
+
+.card-desc{
+  font-size: color:black;
+}
+
+.menubasket{
+  margin-left: 69.5%
+}
+
+.menushop{
+  margin-left: 69%
+}
+.menuboutique{
+  margin-left: 69%
+}
+
+.titlehome{
+  margin-top: 2%;
+  text-align: center;
+}
+
+.titleboutique{
+  margin-top: 3%;
+  text-align: center;
+}
+
+.card-deck{
+  margin-top: 3%;
+}
+
+.card-title{
+  text-align: center;
+}
+
+.boutique{
+  height: 230px
+}
+
+.buttonvelo{
+  margin-top: -3%;
+  margin-left: 35%
+}
+
+.buttonboutique{
+  margin-top: 10%;
+  margin-left: 27%
+}
+
+.buttonreparation{
+  margin-top: 3%;
+  margin-left: 22%
+}
+
+.livraison{
+  width: 90px;
+}
+
+.satisfait{
+  width: 90px;
+  margin-left: 25px;
+}
+
+.paiement{
+  width: 120px;
+  height: 80px;
+}
+
+.produit{
+    margin-left: 5px;
+  width: 90px;
+  margin-top: 10px;
+}
+
+#elemrassurant_haut{
+  margin-top: -1%
+}
+
+#worldmap {
+  height: 500px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%
+}
+
+.textboutique{
+  margin-top: -2%
+}
+
+#reparation-background {
+  height: 500px;
+  background-image: url('/images/reparation-velo.jpg');
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 30px;
+}
+
+#velo-background{
+  background-color: #343A40;
+  color: white;
+  height: 150px;
+  margin-top: 38%;
+  width: 450px;
+  margin-left: 3%
+}
+
+.arrow{
+  color: white;
+  margin-left: 43%
+}
+
+.reparation{
+  margin-top: 15%
+}
+
+.bordercard{
+  border-width: 10px;
+  border-color:#343A40;
+}
+
+#footer-background {
+  margin-top: 10%;
+  height: 500px;
+  background-image: url('/images/carte.gif');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  margin-bottom: 30px;
+  margin-left: 2px
+}
+
+#foot-background{
+  background-color: #343A40;
+  color: white;
+  height: 180px;
+  margin-top: 20%;
+  width: 450px;
+  margin-left: 13%
+}
+
+.buttonbscenter{
+  margin-top: 2%;
+  margin-left: 20%
 }

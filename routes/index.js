@@ -3,8 +3,8 @@ var router = express.Router();
 
 // Here I can store my Stripe public and private keys in an object in order to re-use them when I want... Thanks to JavaScript... It is not necessary but could be usefull I case the application would get bigger and grow.
 var myOwnKeys = {
-  public: "pk_test_fbtCwV2OyBVQNLvkvrQgnruO",
-  private: "sk_test_5Ap7SwKTvqm1QmdRzOYJb9JP"
+  public: "pk_test_xlI6IBZiOEFSL6BXEp0xuYS3",
+  private: "sk_test_l3AMkEkQIix5a64sReUTRujH00sl56XU8z"
 };
 
 // Now I need to require stripe and store the module in a variable in order to use it later in my script. I also add my private key defined just above.
@@ -12,22 +12,37 @@ var stripe = require("stripe")(myOwnKeys.private);
 
 
 var dataBike = [
-  {name: 'Model BIKO45', price: 679, url: '/images/bike-1.jpg'},
-  {name: 'Model ZOOK7', price: 799, url: '/images/bike-2.jpg'},
-  {name: 'Model LIKO89', price: 839, url: '/images/bike-3.jpg'},
-  {name: 'Model GEWO', price: 1206, url: '/images/bike-4.jpg'},
-  {name: 'Model TITAN5', price: 989, url: '/images/bike-5.jpg'},
-  {name: 'Model AMIG39', price: 599, url: '/images/bike-6.jpg'}
+  {name: 'Model BIKO45', descrip: 'Vélo VTT rouge - 17"', price: 679 , url: '/images/bike-1.jpg'},
+  {name: 'Model ZOOK7', descrip: 'Vélo VTT noir - 20"', price: 799, url: '/images/bike-2.jpg'},
+  {name: 'Model LIKO89', descrip: 'Vélo blanc - 20"',  price: 839,url: '/images/bike-3.jpg'},
+  {name: 'Model GEWO', descrip: 'Vélo pour enfants - 20"', price: 1206,   url: '/images/bike-4.jpg'},
+  {name: 'Model TITAN5', descrip: 'Vélo de ville - 23"', price: 989 ,url: '/images/bike-5.jpg'},
+  {name: 'Model AMIG39', descrip: 'Vélo pour enfants - 16"', price: 599,  url: '/images/bike-6.jpg'}
 ];
 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  res.render('home');
+});
+
+router.get('/produits', function(req, res, next) {
   if(req.session.dataCardBike == undefined) {
     req.session.dataCardBike = [];
   }
-  res.render('index', {dataBike});
+  console.log(dataBike);
+  res.render('produits', {dataBike});
 });
+
+router.get('/boutique', function(req, res, next) {
+  res.render('boutique', );
+});
+
+router.get('/reparation', function(req, res, next) {
+  res.render('reparation', );
+});
+
+
 
 /* POST shop page. */
 router.post('/shop', function(req, res, next) {
@@ -35,6 +50,7 @@ router.post('/shop', function(req, res, next) {
   req.session.dataCardBike.push(
     {
       name: req.body.bikeNameFromFront,
+      descrip: req.body.bikeDescFromFront,
       price: req.body.bikePriceFromFront,
       url: req.body.bikeImageFromFront,
       quantity: req.body.bikeQuantityFromFront

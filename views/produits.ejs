@@ -1,14 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
+
 <head>
   <meta charset="utf-8">
   <link rel="shortcut icon" type="image/x-icon" href="./images/bike-background.jpg">
-  <title>BikeShop - Boutique</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
-  integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
-  integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-  crossorigin=""></script>
+  <title>BikeShop - Produits</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="/stylesheets/style.css">
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -19,14 +15,18 @@
   <script src="https://use.fontawesome.com/a7ec7986bf.js"></script>
 </head>
 
-  <body>
-    <div class='container'>
+<body>
+
+  <!-- The container is provided by Bootstrap. You could directly use the class container-fluid if you wanted it to take the full screen -->
+  <div class="container">
+    <!-- Rows are used to generate new lines, and therefore it will start to a new column -->
     <div class="row" id="shop-header">
       <div class="col-12">
-        <a href="./produits" class="mybike">
+        <a href="./#" class="mybike">
           <img id="logo-header" src="/images/bike-logo.svg" title="test">The Bike Shop Experience
         </a>
-        <div class="menuboutique btn-group">
+
+        <div class="menubasket btn-group">
           <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Menu
           </button>
@@ -40,15 +40,35 @@
         </div>
       </div>
     </div>
+    <div class="row" id="shop-background"></div>
+      <h1 class="title"> Notre gamme de vélos </h1>
 
-    <div class="text-center mt-5">
-      <h1 >Confirmation</h1>
-      <h6>Your order as been successfully sent!</h6>
+    <div class="row">
+
+    <% for(var i = 0 ; i < dataBike.length ; i++){ %>
+        <div class="col-12 col-sm-6 col-md-4 bike-card">
+          <div class="card text-center">
+            <img class="card-img-top" src="<%=dataBike[i].url%>">
+            <div class="card-body">
+              <h5 class="card-title"><%=dataBike[i].name%></h5>
+              <p class="card-desc"><%=dataBike[i].descrip%></p>
+              <span class="shop-price"><%=dataBike[i].price%>€</span>
+            <form method="POST" action="/shop">
+              <input type="hidden" name="bikeNameFromFront" value="<%=dataBike[i].name%>">
+              <input type="hidden" name="bikeDescrFromFront" value="<%=dataBike[i].descrip%>">
+              <input type="hidden" name="bikePriceFromFront" value="<%=dataBike[i].price%>">
+              <input type="hidden" name="bikeImageFromFront" value="<%=dataBike[i].url%>">
+              <input type="hidden" name="bikeQuantityFromFront" value="1">
+              <button type="submit" class="btn btn-outline-info btn-sm" name="button">Buy</button>
+            </form>
+            </div>
+          </div>
+        </div>
+    <% } %>
+
     </div>
 
   </div>
-
-
 </body>
 
 </html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" type="image/x-icon" href="./images/bike-background.jpg">
+  <title>BikeShop - Reparation</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://use.fontawesome.com/a7ec7986bf.js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row" id="shop-header">
+      <div class="col-12">
+        <a href="./produits" class="mybike">
+          <img id="logo-header" src="/images/bike-logo.svg" title="test">The Bike Shop Experience
+        </a>
+        <div class="menubasket btn-group">
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Menu
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/produits">Produits</a>
+            <a class="dropdown-item" href="/reparation">Réparation</a>
+            <a class="dropdown-item" href="/boutique">Boutique</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/shop">Vos commandes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" id="reparation-background">
+      <div id="velo-background">
+        <h1 class="text-center mt-3">Votre vélo n'a pas de secret pour nous</h1>
+         <a href="#ancre"> <i class="arrow fa fa-chevron-down fa-3x"></i> </a>
+      </div>
+    </div>
+
+    <div class="reparation card-deck">
+      <div class="bordercard card" id="ancre">
+          <img class="card-img-top" src="./images/entrereg.jpeg">
+        <div class="card-body">
+          <h5 class="card-title">Entretiens réguliers</h5>
+          <p class="card-text">Des révisions régulières sont essentielles pour éviter les problèmes, que vous utilisiez votre vélo pour un usage loisir ou pour aller au travail. C’est la clé pour vous éviter des frais supplémentaires en cas de remplacement. Une révision régulière effectuée par nos techniciens certifiés prolonge la durée de vie de votre vélo, pour garder votre plaisir de rouler intact.</p>
+        </div>
+      </div>
+
+      <div class="bordercard card">
+          <img class="card-img-top" src="./images/diagetop.jpeg">
+        <div class="card-body">
+          <h5 class="card-title">Diagnostic et réparations</h5>
+          <p class="card-text">Vous entendez un bruit étrange ou vous sentez que quelque chose ne tourne pas rond avec votre dérailleur ou votre chaîne ? Ou peut-être que vos freins ont besoin d'un entretien ? Nos mécaniciens sont là pour vous aider.</p>
+        </div>
+      </div>
+
+      <div class="bordercard card">
+          <img class="card-img-top" src="./images/MAJ.jpeg">
+        <div class="card-body">
+          <h5 class="card-title">Réglages et mises à jour</h5>
+          <p class="card-text">Nous savons à quel point il est important que vous vous sentiez bien sur votre vélo. Parfois, même un petit réglage peut tout changer et améliorer vos sensations sur le vélo. Nos experts peuvent régler votre vélo ou faire les mises à jour nécessaires pour répondre à vos besoins. Prêt à perfectionner votre vélo ?</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row" id="footer-background">
+      <div id="foot-background">
+         <h1 class="text-center mt-3">Planifiez votre prochain entretien vélo en vous rendant dans notre boutique</h1>
+          <a href="./boutique" class="buttonbscenter btn btn-outline-info btn-sm" name="button">Trouvez votre Bike Shop Experience</a>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

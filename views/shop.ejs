@@ -3,10 +3,14 @@
 
 <head>
   <meta charset="utf-8">
+  <link rel="shortcut icon" type="image/x-icon" href="./images/bike-background.jpg">
   <title>BikeShop - Shop</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="/stylesheets/style.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script src="https://use.fontawesome.com/a7ec7986bf.js"></script>
 </head>
@@ -16,18 +20,32 @@
   <div class="container">
     <div class="row" id="card-header">
       <div class="col-12">
-        <i class="fa fa-shopping-cart" aria-hidden="true"></i> my Basket
+        <a href="./produits" class="mybike">
+          <img id="logo-header" src="/images/bike-logo.svg" title="test">The Bike Shop Experience
+        </a>
+        <div class="menushop btn-group">
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Menu
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/produits">Produits</a>
+            <a class="dropdown-item" href="/reparation">Réparation</a>
+            <a class="dropdown-item" href="/boutique">Boutique</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/shop">Vos commandes</a>
+          </div>
+        </div>
       </div>
     </div>
 
     <nav id="card-breadcrumb" aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/">Shop</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Basket</li>
+        <li class="breadcrumb-item active" aria-current="page">Bike</li>
       </ol>
     </nav>
 
-    <h1>Basket</h1>
+    <h1>Bike</h1>
     <div class="row" id="card-libelle">
       <div class="col-5 col-sm-3">Picture</div>
       <div class="col-4 d-none d-sm-block">Model</div>
@@ -40,29 +58,29 @@
     <% var totalCmd = 0;
      for(var i = 0 ; i < dataCardBike.length ; i++){
        totalCmd = totalCmd + dataCardBike[i].price*dataCardBike[i].quantity %>
+
     <div class="row card-product">
-      <div class="col-5 col-sm-3"><img class="bike-picture" src="<%=dataCardBike[i].url%>"></div>
+      <div class="col-5 col-sm-3">
+        <img class="bike-picture" src="<%=dataCardBike[i].url%>">
+      </div>
       <div class="col-4 d-none d-sm-block">
         <p><%=dataCardBike[i].name%></p>
       </div>
+
       <div class="col-3 col-sm-2">
         <div class="row">
           <div class="col-8">
-
             <form method="POST" action="/update-shop">
-
                 <input name="position" type="hidden" value="<%=i%>">
                 <input name="quantity" type="text" value="<%=dataCardBike[i].quantity%>" class="form-control form-control-sm">
-
           </div>
           <div class="col-4">
-
                 <button type="submit" class="btn btn-outline-info btn-sm" name="button"><i class="fa fa-refresh" aria-hidden="true"></i></button>
             </form>
-
           </div>
         </div>
       </div>
+
       <div class="col-2 col-sm-1"><%=dataCardBike[i].price%>€</div>
       <div class="col-1 d-none d-sm-block"><%=dataCardBike[i].price*dataCardBike[i].quantity%>€</div>
       <div class="col-2 col-sm-1"><a href="/delete-shop?position=<%=i%>" class="btn btn-outline-info btn-sm"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div>
@@ -71,7 +89,7 @@
 
 
     <div class="row" id="card-total">
-      <div class="col-8 col-sm-10 text-right">Total basket: </div>
+      <div class="col-8 col-sm-10 text-right">Total Bike: </div>
       <div class="col-4 col-sm-2"><%=totalCmd%>€</div>
     </div>
 
@@ -80,13 +98,13 @@
         <form action="/checkout" method="POST">
           <script
             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="pk_test_fbtCwV2OyBVQNLvkvrQgnruO"
+            data-key="pk_test_xlI6IBZiOEFSL6BXEp0xuYS3"
             data-amount="<%=totalCmd*100%>"
-            data-name="BikeShop - La Capsule"
-            data-description="Our first FullStack WebApp"
+            data-name="BikeShop"
+            data-description="My first FullStack WebApp"
             data-shipping-address="true"
             data-label="Checkout"
-            data-image="https://pbs.twimg.com/profile_images/918600683674357760/I3p9GKwG_400x400.jpg"
+            data-image="/images/bike-logo.svg"
             data-locale="auto"
             data-currency="eur">
           </script>
